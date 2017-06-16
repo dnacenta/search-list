@@ -2,6 +2,7 @@ var app = angular.module('slist', []);
 
 app.controller('DataController', function ($scope) {
 
+	$scope.search = {};
 	$scope.selectedIndex = null;
 	$scope.selectedPlace = null;
 

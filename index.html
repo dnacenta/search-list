@@ -19,33 +19,46 @@
 
 <div class="container main-content" ng-controller="DataController">
 
+	<div class="row" >
+
+		<div class="col-md-12" >
+			<form class="form-inline well well-sm" >
+				<span class="glyphicon glyphicon-search" ></span >
+
+				<div class="form-group" >
+						<input type="text"
+						       class="form-control"
+						       id="name"
+						       ng-model="search.country"
+						       placeholder="Search country..."
+								/>
+				</div >
+
+			</form >
+		</div >
+
+	</div >
+
 	<div class="row">
+
 		<div class="col-md-8">
-
 			<table class="table table-bordered">
-
 				<tr>
-					<th>#</th>
 					<th>Country</th>
 					<th>Capital</th>
 				</tr>
-
-				<tr ng-repeat="place in places"
+				<tr ng-repeat="place in places | filter:search"
 						ng-style="{
 							'background-color' : $index == selectedIndex ? 'lightgray' : ''
 						}"
 						ng-click="selectPlace(place, $index)">
-					<td>{{ $index }}</td>
 					<td>{{ place.country }}</td>
 					<td>{{ place.capital }}</td>
 				</tr>
-
-
 			</table>
-
 		</div>
-		<div class="col-md-4">
 
+		<div class="col-md-4">
 			<div class="panel panel-default">
 				<div class="panel-heading">
 					Details
@@ -65,6 +78,7 @@
 			</div>
 
 		</div>
+
 	</div>
 
 </div >
