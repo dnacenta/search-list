@@ -2,6 +2,13 @@ var app = angular.module('slist', []);
 
 app.controller('DataController', function ($scope) {
 
+	$scope.selectedIndex = null;
+	$scope.selectedPlace = null;
+
+	$scope.selectPlace = function(place, index) {
+		$scope.selectedPlace = place;
+		$scope.selectedIndex = index;
+	};
 
 	$scope.places = [
 		{
