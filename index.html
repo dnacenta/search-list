@@ -47,7 +47,7 @@
 					<th>Country</th>
 					<th>Capital</th>
 				</tr>
-				<tr ng-repeat="place in places | filter:search"
+				<tr ng-repeat="place in places | filter:search | orderBy:'country'"
 						ng-style="{
 							'background-color' : $index == selectedIndex ? 'lightgray' : ''
 						}"
