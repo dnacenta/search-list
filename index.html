@@ -1,15 +1,15 @@
 <!DOCTYPE html >
-<html lang="en" ng-app="slist" >
-<head >
-	<title >dnacenta</title >
-	<link href="../libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" >
-	<link href="main.css" rel="stylesheet" >
-</head >
+<html lang="en" ng-app="slist">
+<head>
+	<title>dnacenta</title>
+	<link href="./libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="main.css" rel="stylesheet">
+</head>
 
-<body >
-<nav class="navbar navbar-inverse navbar-fixed-top" >
-	<div class="container" >
-		<div class="navbar-header" >
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
 			<a class="navbar-brand"
 			   href="/" >Countries
 			</a >
@@ -19,25 +19,37 @@
 
 <div class="container main-content" ng-controller="DataController">
 
-	<div class="row" >
+	<div class="row">
 
-		<div class="col-md-12" >
-			<form class="form-inline well well-sm" >
-				<span class="glyphicon glyphicon-search" ></span >
+		<div class="col-md-12">
+			<form class="form-inline well well-sm">
+				<span class="glyphicon glyphicon-search"></span >
 
-				<div class="form-group" >
+				<div class="form-group">
 						<input type="text"
 						       class="form-control"
 						       id="searcher"
 						       ng-model="search.$"
 						       placeholder="Search by country or capital..."
 								/>
-				</div >
+				</div>
 
-			</form >
-		</div >
+				<span class="glyphicon glyphicon-sort-by-attributes"></span>
 
-	</div >
+				<div class="form-group">
+					<select class="form-control"
+					        ng-model="order">
+						<option value="country">Country (ASC)</option>
+						<option value="-country">Country (DEC)</option>
+						<option value="capital">Capital (ASC)</option>
+						<option value="-capital">Capital (DEC)</option>
+					</select>
+				</div>
+
+			</form>
+		</div>
+
+	</div>
 
 	<div class="row">
 
@@ -47,7 +59,7 @@
 					<th>Country</th>
 					<th>Capital</th>
 				</tr>
-				<tr ng-repeat="place in places | filter:search | orderBy:'country'"
+				<tr ng-repeat="place in places | filter:search | orderBy:order"
 						ng-style="{
 							'background-color' : $index == selectedIndex ? 'lightgray' : ''
 						}"
@@ -83,7 +95,7 @@
 
 </div >
 
-<script src="../libs/angular/angular.min.js" ></script >
-<script src="main.js" ></script >
-</body >
-</html >
+<script src="./libs/angular/angular.min.js" ></script>
+<script src="main.js" ></script>
+</body>
+</html>

@@ -5,6 +5,9 @@ body {
   padding: 40px 15px;
 }
 #searcher {
-  margin-left: 10px;
+  margin: 0px 10px;
   width: 225px;
+}
+.glyphicon-sort-by-attributes{
+  margin: 0px 10px;
 }
