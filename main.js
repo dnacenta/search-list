@@ -4,12 +4,10 @@ app.controller('DataController', function ($scope) {
 
 	$scope.search = "";
 	$scope.order = "country";
-	$scope.selectedIndex = null;
 	$scope.selectedPlace = null;
 
-	$scope.selectPlace = function(place, index) {
+	$scope.selectPlace = function(place) {
 		$scope.selectedPlace = place;
-		$scope.selectedIndex = index;
 	};
 
 	$scope.places = [

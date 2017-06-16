@@ -56,16 +56,33 @@
 		<div class="col-md-8">
 			<table class="table table-bordered">
 				<tr>
-					<th>Country</th>
-					<th>Capital</th>
+					<th>
+						Country
+						<span ng-click="order = 'country'" class="glyphicon glyphicon-menu-up"></span>
+						<span ng-click="order = '-country'" class="glyphicon glyphicon-menu-down"></span>
+					</th>
+					<th>
+						Capital
+						<span ng-click="order = 'capital'" class="glyphicon glyphicon-menu-up"></span>
+						<span ng-click="order = '-capital'" class="glyphicon glyphicon-menu-down"></span>
+					</th>
 				</tr>
-				<tr ng-repeat="place in places | filter:search | orderBy:order"
+				<tr ng-repeat="place in filteredPlaces = (places | filter:search | orderBy:order)"
 						ng-style="{
-							'background-color' : $index == selectedIndex ? 'lightgray' : ''
+							'background-color' : place.country == selectedPlace.country ? 'lightgray' : ''
 						}"
-						ng-click="selectPlace(place, $index)">
+						ng-click="selectPlace(place)">
 					<td>{{ place.country }}</td>
 					<td>{{ place.capital }}</td>
+				</tr>
+				<tr ng-show="filteredPlaces.length == 0">
+					<td colspan="4">
+						<div class="alert alert-info">
+							<p class="text-center">
+								No results found for search term '{{ search.$ }}'
+							</p>
+						</div>
+					</td>
 				</tr>
 			</table>
 		</div>
